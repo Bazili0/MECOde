@@ -1,0 +1,1237 @@
+```
+from sys import argv
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
+test_result = 0
+
+
+
+
+
+# Титульная страница
+
+class Ui_Menu(object):
+    def setupUi(self, Menu):
+        Menu.setObjectName("Menu")
+        Menu.resize(600, 600)
+        Menu.setMinimumSize(QtCore.QSize(600, 600))
+        Menu.setMaximumSize(QtCore.QSize(600, 600))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\screenshot-stock.adobe.com-2021.12.27-19_30_16\\"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Menu.setWindowIcon(icon)
+        self.menu_window = QtWidgets.QWidget(Menu)
+        self.menu_window.setObjectName("menu_window")
+
+        self.background = QtWidgets.QLabel(self.menu_window)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)       
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png"))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.menu_window)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 100);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.titul = QtWidgets.QLabel(self.menu_window)
+        self.titul.setGeometry(QtCore.QRect(35, 70, 530, 100))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.titul.setFont(font)
+        self.titul.setStyleSheet("background-color: rgb(255, 255, 255);\n""border: 4px solid;\n""border-radius: 25%;\n""border\n""border-color: rgb(255, 85, 127);")
+        self.titul.setObjectName("titul")
+        self.titul_2 = QtWidgets.QLabel(self.menu_window)
+        self.titul_2.setGeometry(QtCore.QRect(125, 220, 350, 180))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.titul_2.setFont(font)
+        self.titul_2.setStyleSheet("background-color: rgb(255, 255, 255);\n""border: 4px solid;\n""border-radius: 25%;\n""border\n""border-color: rgb(255, 85, 127);")
+        self.titul_2.setObjectName("titul_2")
+
+        self.pushButton = QtWidgets.QPushButton(self.menu_window)
+        self.pushButton.setGeometry(QtCore.QRect(200, 500, 200, 70))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}\n""")
+        self.pushButton.setObjectName("pushButton")
+
+        Menu.setCentralWidget(self.menu_window)
+        self.retranslateUi(Menu)
+        QtCore.QMetaObject.connectSlotsByName(Menu)
+
+
+
+    def retranslateUi(self, Menu):
+        _translate = QtCore.QCoreApplication.translate
+        Menu.setWindowTitle(_translate("Menu", "Тест на знание флагов"))
+        self.titul.setText(_translate("Menu", "<html><head/><body><p align=\"center\">Проект Щербакова Артёма 10&quot;В&quot; по информатике</p><p align=\"center\">&quot;Тест на знание флагов&quot;</p></body></html>"))
+        self.titul_2.setText(_translate("Menu", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt;\">Краткая инструкция</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Тест содержит 5 вопросов.</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Тест оценивается по 5 бальной шкале.</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Выберите вариант ответа и нажмите далее.</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Чтобы начать прохождение жмите &quot;Начать&quot;!</span></p></body></html>"))
+        self.pushButton.setText(_translate("Menu", "Начать!"))
+    
+# Конец титульной страницы
+
+
+
+# Первый вопрос
+
+class First_Question(object):
+    def setupUi(self, Window):
+        Window.setObjectName("Window")
+        Window.resize(600, 600)
+        Window.setMinimumSize(QtCore.QSize(600, 600))
+        Window.setMaximumSize(QtCore.QSize(600, 600))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\screenshot-stock.adobe.com-2021.12.27-19_30_16\\"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Window.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(Window)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)  
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png").scaled(600, 600))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.centralwidget)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 200);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(100, 50, 400, 200))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\Флаг Болгарии.jpg"))
+        self.label.setObjectName("label")
+        
+        self.button_varian_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_1.setGeometry(QtCore.QRect(30, 300, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_1.sizePolicy().hasHeightForWidth())
+        self.button_varian_1.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_1.setFont(font)
+        self.button_varian_1.setAcceptDrops(False)
+        self.button_varian_1.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_1.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_1.setChecked(False)
+        self.button_varian_1.setAutoRepeat(False)
+        self.button_varian_1.setObjectName("button_varian_1")
+        self.button_varian_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_2.setGeometry(QtCore.QRect(30, 360, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_2.sizePolicy().hasHeightForWidth())
+        self.button_varian_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_2.setFont(font)
+        self.button_varian_2.setAcceptDrops(False)
+        self.button_varian_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_2.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_2.setChecked(False)
+        self.button_varian_2.setAutoRepeat(False)
+        self.button_varian_2.setObjectName("button_varian_2")
+        self.button_varian_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_3.setGeometry(QtCore.QRect(30, 420, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_3.sizePolicy().hasHeightForWidth())
+        self.button_varian_3.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_3.setFont(font)
+        self.button_varian_3.setAcceptDrops(False)
+        self.button_varian_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_3.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_3.setChecked(False)
+        self.button_varian_3.setAutoRepeat(False)
+        self.button_varian_3.setObjectName("button_varian_3")
+        self.button_varian_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_4.setGeometry(QtCore.QRect(30, 480, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_4.sizePolicy().hasHeightForWidth())
+        self.button_varian_4.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_4.setFont(font)
+        self.button_varian_4.setAcceptDrops(False)
+        self.button_varian_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_4.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_4.setChecked(False)
+        self.button_varian_4.setAutoRepeat(False)
+        self.button_varian_4.setObjectName("button_varian_4")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(360, 530, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton.setObjectName("pushButton")
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(310, 360, 260, 100))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setTabletTracking(False)
+        self.label_2.setStyleSheet("color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""")
+        self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_2.setObjectName("label_2")
+              
+        Window.setCentralWidget(self.centralwidget)                    
+        self.retranslateUi(Window)
+        QtCore.QMetaObject.connectSlotsByName(Window)
+
+
+    def retranslateUi(self, Window):
+        _translate = QtCore.QCoreApplication.translate
+        Window.setWindowTitle(_translate("Window", "Вопрос №1"))
+        self.button_varian_1.setText(_translate("Window", "Словакия"))
+        self.button_varian_2.setText(_translate("Window", "Россия"))
+        self.button_varian_3.setText(_translate("Window", "Болгария"))
+        self.button_varian_4.setText(_translate("Window", "Колумбия"))
+        self.pushButton.setText(_translate("Window", "Далее"))
+        self.label_2.setText(_translate("Window", "<html><head/><body><p align=\"center\">Вопрос №1</p><p align=\"center\">Какой стране принадлежит</p><p align=\"center\">данный флаг?</p><p align=\"center\"><br/></p></body></html>"))
+
+# Конец первого вопроса
+
+
+
+# Второй вопрос
+
+class Second_Question(object):
+    def setupUi(self, Window):
+        Window.setObjectName("Window")
+        Window.resize(600, 600)
+        Window.setMinimumSize(QtCore.QSize(600, 600))
+        Window.setMaximumSize(QtCore.QSize(600, 600))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\screenshot-stock.adobe.com-2021.12.27-19_30_16\\"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Window.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(Window)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)  
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png").scaled(600, 600))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.centralwidget)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 200);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(100, 50, 400, 200))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\Флаг Австралии.jpg"))
+        self.label.setObjectName("label")
+        
+        self.button_varian_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_1.setGeometry(QtCore.QRect(30, 300, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_1.sizePolicy().hasHeightForWidth())
+        self.button_varian_1.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_1.setFont(font)
+        self.button_varian_1.setAcceptDrops(False)
+        self.button_varian_1.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_1.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_1.setChecked(False)
+        self.button_varian_1.setAutoRepeat(False)
+        self.button_varian_1.setObjectName("button_varian_1")
+        self.button_varian_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_2.setGeometry(QtCore.QRect(30, 360, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_2.sizePolicy().hasHeightForWidth())
+        self.button_varian_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_2.setFont(font)
+        self.button_varian_2.setAcceptDrops(False)
+        self.button_varian_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_2.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_2.setChecked(False)
+        self.button_varian_2.setAutoRepeat(False)
+        self.button_varian_2.setObjectName("button_varian_2")
+        self.button_varian_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_3.setGeometry(QtCore.QRect(30, 420, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_3.sizePolicy().hasHeightForWidth())
+        self.button_varian_3.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_3.setFont(font)
+        self.button_varian_3.setAcceptDrops(False)
+        self.button_varian_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_3.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_3.setChecked(False)
+        self.button_varian_3.setAutoRepeat(False)
+        self.button_varian_3.setObjectName("button_varian_3")
+        self.button_varian_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_4.setGeometry(QtCore.QRect(30, 480, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_4.sizePolicy().hasHeightForWidth())
+        self.button_varian_4.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_4.setFont(font)
+        self.button_varian_4.setAcceptDrops(False)
+        self.button_varian_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_4.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_4.setChecked(False)
+        self.button_varian_4.setAutoRepeat(False)
+        self.button_varian_4.setObjectName("button_varian_4")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(360, 530, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton.setObjectName("pushButton")
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(310, 360, 260, 100))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setTabletTracking(False)
+        self.label_2.setStyleSheet("color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""")
+        self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_2.setObjectName("label_2")
+              
+        Window.setCentralWidget(self.centralwidget)                    
+        self.retranslateUi(Window)
+        QtCore.QMetaObject.connectSlotsByName(Window)
+
+
+    def retranslateUi(self, Window):
+        _translate = QtCore.QCoreApplication.translate
+        Window.setWindowTitle(_translate("Window", "Вопрос №2"))
+        self.button_varian_1.setText(_translate("Window", "Великобритания"))
+        self.button_varian_2.setText(_translate("Window", "Австралия"))
+        self.button_varian_3.setText(_translate("Window", "Австрия"))
+        self.button_varian_4.setText(_translate("Window", "США"))
+        self.pushButton.setText(_translate("Window", "Далее"))
+        self.label_2.setText(_translate("Window", "<html><head/><body><p align=\"center\">Вопрос №1</p><p align=\"center\">Какой стране принадлежит</p><p align=\"center\">данный флаг?</p><p align=\"center\"><br/></p></body></html>"))
+
+# Конец второго вопроса
+
+
+
+# Третий вопрос
+
+class Third_Question(object):
+    def setupUi(self, Window):
+        Window.setObjectName("Window")
+        Window.resize(600, 600)
+        Window.setMinimumSize(QtCore.QSize(600, 600))
+        Window.setMaximumSize(QtCore.QSize(600, 600))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\screenshot-stock.adobe.com-2021.12.27-19_30_16\\"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Window.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(Window)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)  
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png").scaled(600, 600))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.centralwidget)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 200);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(100, 50, 400, 200))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\Флаг Аргентины.jpg"))
+        self.label.setObjectName("label")
+        
+        self.button_varian_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_1.setGeometry(QtCore.QRect(30, 300, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_1.sizePolicy().hasHeightForWidth())
+        self.button_varian_1.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_1.setFont(font)
+        self.button_varian_1.setAcceptDrops(False)
+        self.button_varian_1.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_1.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_1.setChecked(False)
+        self.button_varian_1.setAutoRepeat(False)
+        self.button_varian_1.setObjectName("button_varian_1")
+        self.button_varian_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_2.setGeometry(QtCore.QRect(30, 360, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_2.sizePolicy().hasHeightForWidth())
+        self.button_varian_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_2.setFont(font)
+        self.button_varian_2.setAcceptDrops(False)
+        self.button_varian_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_2.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_2.setChecked(False)
+        self.button_varian_2.setAutoRepeat(False)
+        self.button_varian_2.setObjectName("button_varian_2")
+        self.button_varian_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_3.setGeometry(QtCore.QRect(30, 420, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_3.sizePolicy().hasHeightForWidth())
+        self.button_varian_3.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_3.setFont(font)
+        self.button_varian_3.setAcceptDrops(False)
+        self.button_varian_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_3.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_3.setChecked(False)
+        self.button_varian_3.setAutoRepeat(False)
+        self.button_varian_3.setObjectName("button_varian_3")
+        self.button_varian_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_4.setGeometry(QtCore.QRect(30, 480, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_4.sizePolicy().hasHeightForWidth())
+        self.button_varian_4.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_4.setFont(font)
+        self.button_varian_4.setAcceptDrops(False)
+        self.button_varian_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_4.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_4.setChecked(False)
+        self.button_varian_4.setAutoRepeat(False)
+        self.button_varian_4.setObjectName("button_varian_4")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(360, 530, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton.setObjectName("pushButton")
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(310, 360, 260, 100))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setTabletTracking(False)
+        self.label_2.setStyleSheet("color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""")
+        self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_2.setObjectName("label_2")
+              
+        Window.setCentralWidget(self.centralwidget)                    
+        self.retranslateUi(Window)
+        QtCore.QMetaObject.connectSlotsByName(Window)
+
+
+    def retranslateUi(self, Window):
+        _translate = QtCore.QCoreApplication.translate
+        Window.setWindowTitle(_translate("Window", "Вопрос №3"))
+        self.button_varian_1.setText(_translate("Window", "Аргентина"))
+        self.button_varian_2.setText(_translate("Window", "Китай"))
+        self.button_varian_3.setText(_translate("Window", "Франция"))
+        self.button_varian_4.setText(_translate("Window", "Молдавия"))
+        self.pushButton.setText(_translate("Window", "Далее"))
+        self.label_2.setText(_translate("Window", "<html><head/><body><p align=\"center\">Вопрос №3</p><p align=\"center\">Какой стране принадлежит</p><p align=\"center\">данный флаг?</p><p align=\"center\"><br/></p></body></html>"))
+
+# Конец третьего вопроса
+
+
+
+# Четвёртый вопрос
+
+class Forth_Question(object):
+    def setupUi(self, Window):
+        Window.setObjectName("Window")
+        Window.resize(600, 600)
+        Window.setMinimumSize(QtCore.QSize(600, 600))
+        Window.setMaximumSize(QtCore.QSize(600, 600))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\screenshot-stock.adobe.com-2021.12.27-19_30_16\\"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Window.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(Window)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)  
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png").scaled(600, 600))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.centralwidget)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 200);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(100, 50, 400, 200))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\Флаг Узбекистана.jpg"))
+        self.label.setObjectName("label")
+        
+        self.button_varian_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_1.setGeometry(QtCore.QRect(30, 300, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_1.sizePolicy().hasHeightForWidth())
+        self.button_varian_1.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_1.setFont(font)
+        self.button_varian_1.setAcceptDrops(False)
+        self.button_varian_1.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_1.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_1.setChecked(False)
+        self.button_varian_1.setAutoRepeat(False)
+        self.button_varian_1.setObjectName("button_varian_1")
+        self.button_varian_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_2.setGeometry(QtCore.QRect(30, 360, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_2.sizePolicy().hasHeightForWidth())
+        self.button_varian_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_2.setFont(font)
+        self.button_varian_2.setAcceptDrops(False)
+        self.button_varian_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_2.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_2.setChecked(False)
+        self.button_varian_2.setAutoRepeat(False)
+        self.button_varian_2.setObjectName("button_varian_2")
+        self.button_varian_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_3.setGeometry(QtCore.QRect(30, 420, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_3.sizePolicy().hasHeightForWidth())
+        self.button_varian_3.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_3.setFont(font)
+        self.button_varian_3.setAcceptDrops(False)
+        self.button_varian_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_3.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_3.setChecked(False)
+        self.button_varian_3.setAutoRepeat(False)
+        self.button_varian_3.setObjectName("button_varian_3")
+        self.button_varian_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_4.setGeometry(QtCore.QRect(30, 480, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_4.sizePolicy().hasHeightForWidth())
+        self.button_varian_4.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_4.setFont(font)
+        self.button_varian_4.setAcceptDrops(False)
+        self.button_varian_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_4.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_4.setChecked(False)
+        self.button_varian_4.setAutoRepeat(False)
+        self.button_varian_4.setObjectName("button_varian_4")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(360, 530, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton.setObjectName("pushButton")
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(310, 360, 260, 100))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setTabletTracking(False)
+        self.label_2.setStyleSheet("color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""")
+        self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_2.setObjectName("label_2")
+              
+        Window.setCentralWidget(self.centralwidget)                    
+        self.retranslateUi(Window)
+        QtCore.QMetaObject.connectSlotsByName(Window)
+
+
+    def retranslateUi(self, Window):
+        _translate = QtCore.QCoreApplication.translate
+        Window.setWindowTitle(_translate("Window", "Вопрос №4"))
+        self.button_varian_1.setText(_translate("Window", "Таджикистан"))
+        self.button_varian_2.setText(_translate("Window", "Азербайджан"))
+        self.button_varian_3.setText(_translate("Window", "Казахстан"))
+        self.button_varian_4.setText(_translate("Window", "Узбекистан"))
+        self.pushButton.setText(_translate("Window", "Далее"))
+        self.label_2.setText(_translate("Window", "<html><head/><body><p align=\"center\">Вопрос №4</p><p align=\"center\">Какой стране принадлежит</p><p align=\"center\">данный флаг?</p><p align=\"center\"><br/></p></body></html>"))
+
+# Конец четвёртого вопроса
+
+
+# Пятый вопрос
+
+class Fifth_Question(object):
+    def setupUi(self, Window):
+        Window.setObjectName("Window")
+        Window.resize(600, 600)
+        Window.setMinimumSize(QtCore.QSize(600, 600))
+        Window.setMaximumSize(QtCore.QSize(600, 600))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\screenshot-stock.adobe.com-2021.12.27-19_30_16\\"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Window.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(Window)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)  
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png").scaled(600, 600))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.centralwidget)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 200);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(100, 50, 400, 200))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\Флаг Великобритании.jpg"))
+        self.label.setObjectName("label")
+        
+        self.button_varian_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_1.setGeometry(QtCore.QRect(30, 300, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_1.sizePolicy().hasHeightForWidth())
+        self.button_varian_1.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_1.setFont(font)
+        self.button_varian_1.setAcceptDrops(False)
+        self.button_varian_1.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_1.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_1.setChecked(False)
+        self.button_varian_1.setAutoRepeat(False)
+        self.button_varian_1.setObjectName("button_varian_1")
+        self.button_varian_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_2.setGeometry(QtCore.QRect(30, 360, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_2.sizePolicy().hasHeightForWidth())
+        self.button_varian_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_2.setFont(font)
+        self.button_varian_2.setAcceptDrops(False)
+        self.button_varian_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_2.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_2.setChecked(False)
+        self.button_varian_2.setAutoRepeat(False)
+        self.button_varian_2.setObjectName("button_varian_2")
+        self.button_varian_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_3.setGeometry(QtCore.QRect(30, 420, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_3.sizePolicy().hasHeightForWidth())
+        self.button_varian_3.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_3.setFont(font)
+        self.button_varian_3.setAcceptDrops(False)
+        self.button_varian_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_3.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_3.setChecked(False)
+        self.button_varian_3.setAutoRepeat(False)
+        self.button_varian_3.setObjectName("button_varian_3")
+        self.button_varian_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.button_varian_4.setGeometry(QtCore.QRect(30, 480, 250, 40))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_varian_4.sizePolicy().hasHeightForWidth())
+        self.button_varian_4.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_varian_4.setFont(font)
+        self.button_varian_4.setAcceptDrops(False)
+        self.button_varian_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.button_varian_4.setStyleSheet("color: black;\n""background-color: white;\n""border-radius: 20%;")
+        self.button_varian_4.setChecked(False)
+        self.button_varian_4.setAutoRepeat(False)
+        self.button_varian_4.setObjectName("button_varian_4")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(360, 530, 150, 50))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton.setObjectName("pushButton")
+
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(310, 360, 260, 100))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setTabletTracking(False)
+        self.label_2.setStyleSheet("color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""")
+        self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_2.setObjectName("label_2")
+              
+        Window.setCentralWidget(self.centralwidget)                    
+        self.retranslateUi(Window)
+        QtCore.QMetaObject.connectSlotsByName(Window)
+
+
+    def retranslateUi(self, Window):
+        _translate = QtCore.QCoreApplication.translate
+        Window.setWindowTitle(_translate("Window", "Вопрос №5"))
+        self.button_varian_1.setText(_translate("Window", "Англия"))
+        self.button_varian_2.setText(_translate("Window", "Уэльс"))
+        self.button_varian_3.setText(_translate("Window", "Великобритания"))
+        self.button_varian_4.setText(_translate("Window", "Шотландия"))
+        self.pushButton.setText(_translate("Window", "Далее"))
+        self.label_2.setText(_translate("Window", "<html><head/><body><p align=\"center\">Вопрос №5</p><p align=\"center\">Какой стране принадлежит</p><p align=\"center\">данный флаг?</p><p align=\"center\"><br/></p></body></html>"))
+
+# Конец пятого вопроса
+
+
+# Конечное меню
+
+class End_Window(object):
+    def setupUi(self, Window):
+
+        Window.setObjectName("Window")
+        Window.resize(600, 600)
+        Window.setMinimumSize(QtCore.QSize(600, 600))
+        Window.setMaximumSize(QtCore.QSize(600, 600))
+
+        self.centralwidget = QtWidgets.QWidget(Window)
+        self.centralwidget.setObjectName("centralwidget")
+
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.background.setText("")
+        self.background.setTextFormat(QtCore.Qt.AutoText)       
+        self.background.setPixmap(QtGui.QPixmap(r"C:\\Users\\xomnr\\OneDrive\\Рабочий стол\\MyPython\\Infa Project\\scale_1200.png"))
+        self.background.setAlignment(QtCore.Qt.AlignCenter)
+        self.background.setWordWrap(False)
+        self.background.setOpenExternalLinks(False)
+        self.background.setObjectName("background")
+        self.dark_background = QtWidgets.QLabel(self.centralwidget)
+        self.dark_background.setGeometry(QtCore.QRect(0, 0, 600, 600))
+        self.dark_background.setStyleSheet("background-color: rgba(0, 0, 0, 100);\n""\n""")
+        self.dark_background.setText("")
+        self.dark_background.setTextFormat(QtCore.Qt.AutoText)
+        self.dark_background.setAlignment(QtCore.Qt.AlignCenter)
+        self.dark_background.setWordWrap(False)
+        self.dark_background.setOpenExternalLinks(False)
+        self.dark_background.setObjectName("dark_background")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(125, 30, 350, 70))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("background-color: rgb(255, 255, 255);\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: rgb(0, 0, 0);")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setWordWrap(False)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(120, 120, 360, 350))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("background-color: rgb(255, 255, 255);\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: rgb(0, 0, 0);")
+        self.label_2.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_2.setWordWrap(False)
+        self.label_2.setObjectName("label_2")
+
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(40, 510, 200, 60))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(360, 510, 200, 60))
+        font = QtGui.QFont()
+        font.setFamily("Neo Sans Pro Ultra")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet("QPushButton{\n""color: black;\n""background-color: white;\n""border: 4px solid;\n""border-radius: 25%;\n""border-color: black;\n""}\n""QPushButton:pressed{\n""background-color: rgb(0, 0, 0);\n""border: 4 px solid;\n""border-radius: 25%;\n""border-color: white;\n""color: white;\n""}")
+        self.pushButton_2.setObjectName("pushButton_2")
+
+        Window.setCentralWidget(self.centralwidget)
+        self.retranslateUi(Window)
+        QtCore.QMetaObject.connectSlotsByName(Window)
+        
+
+    def retranslateUi(self, Window):
+        _translate = QtCore.QCoreApplication.translate
+        Window.setWindowTitle(_translate("Window", "Итоги теста"))
+        self.label.setText(_translate("Window", "Поздравляем! "))
+        self.label_2.setText(_translate("Window", ("<html><head/><body><p align=\"center\">Вы успешно прошли тест</p><p align=\"center\"><br/></p><p align=\"center\">Ваш балл:</p><p align=\"center\">---</p><p align=\"center\">Ваша оценка:</p><p align=\"center\">---</p></body></html>")))
+        self.pushButton.setText(_translate("Window", "Попробовать ещё раз"))
+        self.pushButton_2.setText(_translate("Window", "Закончить "))
+    
+
+
+# Конец конечного меню
+
+
+# ================================================================================================================ #
+
+
+# Начало переключателей
+
+
+
+# Закрытие/Начать сначала
+
+class EndWindow(QtWidgets.QMainWindow, End_Window):
+    def __init__(self):
+        super(EndWindow, self).__init__()
+        self.setupUi(self)
+
+    #     self.pushButton.clicked.connect(self.reset_program)
+
+    #     self.start_window = MainWindow()
+
+    # def reset_program(self):
+
+    #     self.start_window.show()
+    #     self.hide()
+
+    
+
+
+# Переключение на конечное меню
+
+class FifthQuestion(QtWidgets.QMainWindow, Fifth_Question):
+    def __init__(self):
+        super(FifthQuestion, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.open_question)
+
+        self.endWindow = EndWindow()
+        
+    def open_question(self):
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                    if self.button_varian_3.isChecked() == True:
+                        global test_result
+                        test_result += 1
+                        print(test_result)
+            
+            answer_check(self)
+            self.endWindow.show()
+            self.hide()
+
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+
+
+
+# Переключение на пятый вопрос
+
+class ForthQuestion(QtWidgets.QMainWindow, Forth_Question):
+    def __init__(self):
+        super(ForthQuestion, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.open_question)
+
+        self.fifthQuestion = FifthQuestion()
+        
+    def open_question(self):
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                    if self.button_varian_4.isChecked() == True:
+                        global test_result
+                        test_result += 1
+                        print(test_result)
+            
+            answer_check(self)
+            self.fifthQuestion.show()
+            self.hide()
+
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+
+
+
+# Переключение на четвёртый вопрос
+
+class ThirdQuestion(QtWidgets.QMainWindow, Third_Question):
+    def __init__(self):
+        super(ThirdQuestion, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.open_question)
+
+        self.forthQuestion = ForthQuestion()
+
+    def open_question(self):
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                    if self.button_varian_1.isChecked() == True:
+                        global test_result
+                        test_result += 1
+                        print(test_result)
+            
+            answer_check(self)
+            self.forthQuestion.show()
+            self.hide()
+
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+
+
+
+
+# Переключение на третий вопрос
+
+class SecondQuestion(QtWidgets.QMainWindow, Second_Question):
+    def __init__(self):
+        super(SecondQuestion, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.open_question)
+
+        self.thirdQuestion = ThirdQuestion()
+        
+    def open_question(self):
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                if self.button_varian_2.isChecked() == True:
+                    global test_result
+                    test_result += 1
+                    print(test_result)
+            
+                
+            answer_check(self)
+            self.thirdQuestion.show()
+            self.hide()
+
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+
+
+
+# Переключение на второй вопрос
+
+class FirstQuestion(QtWidgets.QMainWindow, First_Question):
+    def __init__(self):
+        super(FirstQuestion, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.open_question)
+
+        self.secondQuestion = SecondQuestion()
+
+    def open_question(self):
+        
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                if self.button_varian_3.isChecked() == True:
+                    global test_result
+                    test_result += 1
+                    print(test_result)
+
+            answer_check(self)
+            self.secondQuestion.show()
+            self.hide()
+
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+    
+
+
+# Переключение на первый вопрос
+
+class MainWindow(QtWidgets.QMainWindow, Ui_Menu):
+    def __init__(self):
+        super(MainWindow,self).__init__()
+        self.setupUi(self)
+        
+        self.pushButton.clicked.connect(self.open_question)
+        
+        self.firstQuestion = FirstQuestion()
+
+    def open_question(self):
+        self.firstQuestion.show()
+        self.hide()
+        
+
+
+# Скрипт запуск/завершение
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    w = MainWindow()
+    w.show()
+    sys.exit(app.exec_())
+```
