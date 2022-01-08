@@ -1,12 +1,8 @@
-```
 from sys import argv
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
 test_result = 0
-
-
-
 
 
 # Титульная страница
@@ -1008,120 +1004,40 @@ class End_Window(object):
 # ================================================================================================================ #
 
 
-# Начало переключателей
-
-
-
-# Закрытие/Начать сначала
-
-class EndWindow(QtWidgets.QMainWindow, End_Window):
+class MainWindow(QtWidgets.QMainWindow, Ui_Menu):
     def __init__(self):
-        super(EndWindow, self).__init__()
+        super(MainWindow,self).__init__()
         self.setupUi(self)
-
-    #     self.pushButton.clicked.connect(self.reset_program)
-
-    #     self.start_window = MainWindow()
-
-    # def reset_program(self):
-
-    #     self.start_window.show()
-    #     self.hide()
-
-    
-
-
-# Переключение на конечное меню
-
-class FifthQuestion(QtWidgets.QMainWindow, Fifth_Question):
-    def __init__(self):
-        super(FifthQuestion, self).__init__()
-        self.setupUi(self)
-
-        self.pushButton.clicked.connect(self.open_question)
-
-        self.endWindow = EndWindow()
         
-    def open_question(self):
-        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
-            def answer_check(self):
-                    if self.button_varian_3.isChecked() == True:
-                        global test_result
-                        test_result += 1
-                        print(test_result)
-            
-            answer_check(self)
-            self.endWindow.show()
-            self.hide()
-
-        else:
-            error = QMessageBox()
-            error.setWindowTitle("Ошибка")
-            error.setText("Выберите вариант ответа")
-            error.setIcon(QMessageBox.Warning)
-            error.setStandardButtons(QMessageBox.Ok)
-            error.setDefaultButton(QMessageBox.Ok)
-            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
-            error.exec_()
-
-
-
-# Переключение на пятый вопрос
-
-class ForthQuestion(QtWidgets.QMainWindow, Forth_Question):
-    def __init__(self):
-        super(ForthQuestion, self).__init__()
-        self.setupUi(self)
-
         self.pushButton.clicked.connect(self.open_question)
-
-        self.fifthQuestion = FifthQuestion()
         
+        self.firstQuestion = FirstQuestion()
+
     def open_question(self):
-        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
-            def answer_check(self):
-                    if self.button_varian_4.isChecked() == True:
-                        global test_result
-                        test_result += 1
-                        print(test_result)
-            
-            answer_check(self)
-            self.fifthQuestion.show()
-            self.hide()
-
-        else:
-            error = QMessageBox()
-            error.setWindowTitle("Ошибка")
-            error.setText("Выберите вариант ответа")
-            error.setIcon(QMessageBox.Warning)
-            error.setStandardButtons(QMessageBox.Ok)
-            error.setDefaultButton(QMessageBox.Ok)
-            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
-            error.exec_()
+        self.firstQuestion.show()
+        self.hide()
 
 
-
-# Переключение на четвёртый вопрос
-
-class ThirdQuestion(QtWidgets.QMainWindow, Third_Question):
+class FirstQuestion(QtWidgets.QMainWindow, First_Question):
     def __init__(self):
-        super(ThirdQuestion, self).__init__()
+        super(FirstQuestion, self).__init__()
         self.setupUi(self)
 
         self.pushButton.clicked.connect(self.open_question)
 
-        self.forthQuestion = ForthQuestion()
+        self.secondQuestion = SecondQuestion()
 
     def open_question(self):
+        
         if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
             def answer_check(self):
-                    if self.button_varian_1.isChecked() == True:
-                        global test_result
-                        test_result += 1
-                        print(test_result)
-            
+                if self.button_varian_3.isChecked() == True:
+                    global test_result 
+                    test_result += 1
+                    print(test_result)
+
             answer_check(self)
-            self.forthQuestion.show()
+            self.secondQuestion.show()
             self.hide()
 
         else:
@@ -1134,10 +1050,6 @@ class ThirdQuestion(QtWidgets.QMainWindow, Third_Question):
             error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
             error.exec_()
 
-
-
-
-# Переключение на третий вопрос
 
 class SecondQuestion(QtWidgets.QMainWindow, Second_Question):
     def __init__(self):
@@ -1172,29 +1084,25 @@ class SecondQuestion(QtWidgets.QMainWindow, Second_Question):
             error.exec_()
 
 
-
-# Переключение на второй вопрос
-
-class FirstQuestion(QtWidgets.QMainWindow, First_Question):
+class ThirdQuestion(QtWidgets.QMainWindow, Third_Question):
     def __init__(self):
-        super(FirstQuestion, self).__init__()
+        super(ThirdQuestion, self).__init__()
         self.setupUi(self)
 
         self.pushButton.clicked.connect(self.open_question)
 
-        self.secondQuestion = SecondQuestion()
+        self.forthQuestion = ForthQuestion()
 
     def open_question(self):
-        
         if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
             def answer_check(self):
-                if self.button_varian_3.isChecked() == True:
-                    global test_result
-                    test_result += 1
-                    print(test_result)
-
+                    if self.button_varian_1.isChecked() == True:
+                        global test_result
+                        test_result += 1
+                        print(test_result)
+            
             answer_check(self)
-            self.secondQuestion.show()
+            self.forthQuestion.show()
             self.hide()
 
         else:
@@ -1206,32 +1114,119 @@ class FirstQuestion(QtWidgets.QMainWindow, First_Question):
             error.setDefaultButton(QMessageBox.Ok)
             error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
             error.exec_()
-    
 
 
-# Переключение на первый вопрос
-
-class MainWindow(QtWidgets.QMainWindow, Ui_Menu):
+class ForthQuestion(QtWidgets.QMainWindow, Forth_Question):
     def __init__(self):
-        super(MainWindow,self).__init__()
+        super(ForthQuestion, self).__init__()
         self.setupUi(self)
-        
+
         self.pushButton.clicked.connect(self.open_question)
+
+        self.fifthQuestion = FifthQuestion()
         
-        self.firstQuestion = FirstQuestion()
+    def open_question(self):
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                    if self.button_varian_4.isChecked() == True:
+                        global test_result
+                        test_result += 1
+                        print(test_result)
+            
+            answer_check(self)
+            self.fifthQuestion.show()
+            self.hide()
+
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+
+
+class FifthQuestion(QtWidgets.QMainWindow, Fifth_Question):
+    def __init__(self):
+        super(FifthQuestion, self).__init__()
+        self.setupUi(self)
+
+        self.pushButton.clicked.connect(self.open_question)
+
+        self.endWindow = EndWindow()
+    
+    def resultresult(self):
+                if test_result == 0 or test_result == 1 or test_result == 2:
+                    self.endWindow.label_2.setText("Вы успешно прошли тест!\n\nВаш балл:\n\n" + str(test_result) + "/5\n\nВаша оценка:\n\n2")
+                elif test_result == 3:
+                    self.endWindow.label_2.setText("Вы успешно прошли тест!\n\nВаш балл:\n\n" + str(test_result) + "/5\n\nВаша оценка:\n\n3")
+                elif test_result == 4:
+                    self.endWindow.label_2.setText("Вы успешно прошли тест!\n\nВаш балл:\n\n" + str(test_result) + "/5\n\nВаша оценка:\n\n4")
+                elif test_result == 5:
+                    self.endWindow.label_2.setText("Вы успешно прошли тест!\n\nВаш балл:\n\n" + str(test_result) + "/5\n\nВаша оценка:\n\n5")
 
     def open_question(self):
-        self.firstQuestion.show()
-        self.hide()
-        
+        if self.button_varian_1.isChecked() == True or self.button_varian_2.isChecked() == True or self.button_varian_3.isChecked() == True or self.button_varian_4.isChecked() == True:
+            def answer_check(self):
+                    if self.button_varian_3.isChecked() == True:
+                        global test_result
+                        test_result += 1
+                        print(test_result)
+            
+            answer_check(self)
+            
+            self.resultresult()
+            self.endWindow.show()
+            self.hide()
 
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("Ошибка")
+            error.setText("Выберите вариант ответа")
+            error.setIcon(QMessageBox.Warning)
+            error.setStandardButtons(QMessageBox.Ok)
+            error.setDefaultButton(QMessageBox.Ok)
+            error.setInformativeText("Посмотрите на флаг и выберите хотя бы один вариант ответа из предложенных")
+            error.exec_()
+
+
+class EndWindow(QtWidgets.QMainWindow, End_Window):
+    def __init__(self):
+        super(EndWindow, self).__init__()
+        self.setupUi(self)
+
+        
+        self.pushButton_2.clicked.connect(self.exit)
+        
+        self.pushButton.clicked.connect(self.repeat)
+
+    def repeat(self):
+        global test_result 
+        test_result = 0
+        self.next = MainWindow()
+        self.next.show()
+        self.hide()
+
+    def exit(self):
+        # app = QtWidgets.QApplication(sys.argv)
+        # app.exec_()
+        import sys
+        sys.exit()
+ 
+        
+        
+        
+        
+        
 
 # Скрипт запуск/завершение
 
 if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    w = MainWindow()
-    w.show()
-    sys.exit(app.exec_())
-```
+    for i in range(1):
+        import sys
+        app = QtWidgets.QApplication(sys.argv)
+        w = MainWindow()
+        w.show()
+        sys.exit(app.exec_())
